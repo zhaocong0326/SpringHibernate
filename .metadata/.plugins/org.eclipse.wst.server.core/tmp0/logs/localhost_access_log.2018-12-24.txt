@@ -1,5 +1,0 @@
-127.0.0.1 - - [24/Dec/2018:14:23:27 +0800] "GET / HTTP/1.1" 404 1074
-0:0:0:0:0:0:0:1 - - [24/Dec/2018:14:23:27 +0800] "GET /spring-mvc-demo/ HTTP/1.1" 200 248
-0:0:0:0:0:0:0:1 - - [24/Dec/2018:14:23:29 +0800] "GET /spring-mvc-demo/customer/showForm HTTP/1.1" 200 790
-0:0:0:0:0:0:0:1 - - [24/Dec/2018:14:23:44 +0800] "POST /spring-mvc-demo/customer/processForm HTTP/1.1" 200 875
-0:0:0:0:0:0:0:1 - - [24/Dec/2018:14:23:48 +0800] "POST /spring-mvc-demo/customer/processForm HTTP/1.1" 200 228

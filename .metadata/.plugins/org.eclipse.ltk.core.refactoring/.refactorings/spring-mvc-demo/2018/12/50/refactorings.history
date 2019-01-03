@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;com.luv2code.springdemo.mvc.SillyContriller&apos; to &apos;SillyController&apos;&#x0A;- Original project: &apos;spring-mvc-demo&apos;&#x0A;- Original element: &apos;com.luv2code.springdemo.mvc.SillyContriller&apos;&#x0A;- Renamed element: &apos;com.luv2code.springdemo.mvc.SillyController&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SillyContriller&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.luv2code.springdemo.mvc{SillyContriller.java[SillyContriller" matchStrategy="1" name="SillyController" qualified="false" references="true" similarDeclarations="false" stamp="1544722942449" textual="false" version="1.0"/>
-</session>
