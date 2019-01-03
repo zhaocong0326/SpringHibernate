@@ -42,7 +42,7 @@ public class EagerLazyDemo {
                 // close the session
                 session.close();
                 
-                System.out.println("luv2code: The session is now closed! stt");
+                System.out.println("luv2code: The session is now closed! last modify");
                 // option1: call getter method while session is open
                 
                 
