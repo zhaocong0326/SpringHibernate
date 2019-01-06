@@ -17,7 +17,7 @@ public class Review {
 	
 	// define getter/setters
 	
-	//define tostring
+	// define tostring
 	
 	// annotate fields
 	
@@ -30,7 +30,7 @@ public class Review {
 	private String comment;
 	
 	public Review() {
-			
+		
 	}
 
 	public Review(String comment) {
@@ -59,3 +59,8 @@ public class Review {
 	}
 	
 }
+
+
+
+
+

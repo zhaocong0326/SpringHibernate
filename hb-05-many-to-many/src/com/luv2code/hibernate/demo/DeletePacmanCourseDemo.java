@@ -8,8 +8,9 @@ import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import com.luv2code.hibernate.demo.entity.Review;
+import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateCourseAndReviewsDemo {
+public class DeletePacmanCourseDemo {
 
 	public static void main(String[] args) {
 
@@ -20,6 +21,7 @@ public class CreateCourseAndReviewsDemo {
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
 								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -29,23 +31,16 @@ public class CreateCourseAndReviewsDemo {
 			
 			// start a transaction
 			session.beginTransaction();
+
+			// get the pacman course from db
+			int courseId = 10;
+			Course tempCourse = session.get(Course.class, courseId);
 			
+			// delete the course
+			System.out.println("Deleting course: " + tempCourse);
 			
-			// create a course
-			Course tempCourse = new Course("Pacman - How To Score One Million Points");
-			
-			// add some reviews
-			tempCourse.addReview(new Review("Great course ... loved it!"));
-			tempCourse.addReview(new Review("Cool course, job well done"));
-			tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
+			session.delete(tempCourse);
 						
-			// save the course ... and leverage the cascade all :-)
-			System.out.println("Saving the course");
-			System.out.println(tempCourse);
-			System.out.println(tempCourse.getReviews());
-			
-			session.save(tempCourse);
-			
 			// commit transaction
 			session.getTransaction().commit();
 			

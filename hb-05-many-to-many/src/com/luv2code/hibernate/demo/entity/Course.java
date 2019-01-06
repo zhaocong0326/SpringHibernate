@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,7 +25,7 @@ public class Course {
 	
 	// define constructors
 	
-	// define getters setters
+	// define getter setters
 	
 	// define tostring
 	
@@ -38,18 +39,18 @@ public class Course {
 	@Column(name="title")
 	private String title;
 	
-	 
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+						 CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="course_id")
 	private List<Review> reviews;
-	
-	
+		
 	@ManyToMany(fetch=FetchType.LAZY,
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH})
+			 CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable(
 			name="course_student",
 			joinColumns=@JoinColumn(name="course_id"),
@@ -59,7 +60,6 @@ public class Course {
 	
 	
 	public Course() {
-		
 		
 	}
 
@@ -91,7 +91,6 @@ public class Course {
 		this.instructor = instructor;
 	}
 
-	
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -103,32 +102,33 @@ public class Course {
 	// add a convenience method
 	
 	public void addReview(Review theReview) {
-		
+	
 		if (reviews == null) {
 			reviews = new ArrayList<>();
 		}
 		
 		reviews.add(theReview);
-		
 	}
+	
 	public List<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudent(List<Student> students) {
+	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
 
 	// add a convenience method
 	
-	public void addstudent(Student thestudent) {
+	public void addStudent(Student theStudent) {
 		
-		if(students == null) {
+		if (students == null) {
 			students = new ArrayList<>();
 		}
 		
-		students.add(thestudent);
+		students.add(theStudent);
 	}
+	
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + "]";
@@ -136,3 +136,6 @@ public class Course {
 	
 	
 }
+
+
+

@@ -15,11 +15,11 @@ public class InstructorDetail {
 
 	// annotate the class as an entity and map to db table
 	
-	// define the files 
+	// define the fields
 	
 	// annotate the fields with db column names
 	
-	// create constructors 
+	// create constructors
 	
 	// generate getter/setter methods
 	
@@ -36,15 +36,16 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
-	// add new field for instructor (also add getter/setters) 
+	// add new field for instructor (also add getter/setters)
 	
-	// add @OneToONe annotation
+	// add @OneToOne annotation
 	
-	@OneToOne(mappedBy="instructorDetail",
-			cascade= {CascadeType.DETACH,CascadeType.MERGE, CascadeType.PERSIST,
+	@OneToOne(mappedBy="instructorDetail", 
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
 	private Instructor instructor;
-    
+
+	
 	public Instructor getInstructor() {
 		return instructor;
 	}
@@ -90,6 +91,12 @@ public class InstructorDetail {
 	public String toString() {
 		return "InstructorDetail [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
 	}
-	
-	 
+		
 }
+
+
+
+
+
+
+

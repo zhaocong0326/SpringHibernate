@@ -20,19 +20,19 @@ import javax.persistence.Table;
 public class Instructor {
 
 	// annotate the class as an entity and map to db table
-
-	// define the files 
+	
+	// define the fields
 	
 	// annotate the fields with db column names
 	
-	// **set up mapping to InstructorDetail entity
+	// ** set up mapping to InstructorDetail entity
 	
-	// create constructors 
+	// create constructors
 	
 	// generate getter/setter methods
 	
 	// generate toString() method
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -43,7 +43,7 @@ public class Instructor {
 	
 	@Column(name="last_name")
 	private String lastName;
-	
+
 	@Column(name="email")
 	private String email;
 	
@@ -52,13 +52,14 @@ public class Instructor {
 	private InstructorDetail instructorDetail;
 	
 	@OneToMany(fetch=FetchType.LAZY,
-				mappedBy="instructor",
-				cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-						  CascadeType.DETACH, CascadeType.REFRESH})
+			   mappedBy="instructor",
+			   cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+						 CascadeType.DETACH, CascadeType.REFRESH})
 	private List<Course> courses;
 	
+	
 	public Instructor() {
-		 
+		
 	}
 
 	public Instructor(String firstName, String lastName, String email) {
@@ -125,11 +126,24 @@ public class Instructor {
 	
 	public void add(Course tempCourse) {
 		
-		if(courses == null) {
+		if (courses == null) {
 			courses = new ArrayList<>();
 		}
-		 courses.add(tempCourse);
-		 
-		 tempCourse.setInstructor(this);
+		
+		courses.add(tempCourse);
+		
+		tempCourse.setInstructor(this);
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
