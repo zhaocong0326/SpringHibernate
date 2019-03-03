@@ -19,7 +19,7 @@ public class UserRole {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long userRoleId;
 	
-	@ManyToOne(fetch= FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="user_id")
 	private User user;
 	
@@ -27,6 +27,7 @@ public class UserRole {
 	@JoinColumn(name="role_id")
 	private Role role;
 	
+	public UserRole(){}
 	
 	public UserRole(User user, Role role) {
 		this.user = user;

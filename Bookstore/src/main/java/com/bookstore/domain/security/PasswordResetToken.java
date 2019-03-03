@@ -16,9 +16,9 @@ import com.bookstore.domain.User;
 @Entity
 public class PasswordResetToken {
 
-	private static final int EXPIRRATION = 60 * 24;
+	private static final int EXPIRATION = 60 * 24;
 	
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
@@ -30,12 +30,14 @@ public class PasswordResetToken {
 	
 	private Date expiryDate;
 	
+	public PasswordResetToken(){}
+	
 	public PasswordResetToken(final String token, final User user) {
-		super();
+		super ();
 		
 		this.token = token;
 		this.user = user;
-		this.expiryDate = calculateExpiryDate(EXPIRRATION);
+		this.expiryDate = calculateExpiryDate(EXPIRATION);
 	}
 	
 	private Date calculateExpiryDate (final int expiryTimeInMinutes) {
@@ -47,7 +49,7 @@ public class PasswordResetToken {
 	
 	public void updateToken(final String token) {
 		this.token = token;
-		this.expiryDate = calculateExpiryDate(EXPIRRATION);
+		this.expiryDate = calculateExpiryDate(EXPIRATION);
 	}
 
 	public Long getId() {
@@ -82,18 +84,15 @@ public class PasswordResetToken {
 		this.expiryDate = expiryDate;
 	}
 
-	public static int getExpirration() {
-		return EXPIRRATION;
+	public static int getExpiration() {
+		return EXPIRATION;
 	}
 
 	@Override
 	public String toString() {
-		return "PassWordResetToken [id=" + id + ", token=" + token + ", user=" + user + ", expiryDate=" + expiryDate
+		return "PasswordResetToken [id=" + id + ", token=" + token + ", user=" + user + ", expiryDate=" + expiryDate
 				+ "]";
 	}
 	
 	
-	
-	
 }
-
