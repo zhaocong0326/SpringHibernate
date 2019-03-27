@@ -14,12 +14,14 @@ import com.adminportal.domain.security.UserRole;
 import com.adminportal.service.UserService;
 import com.adminportal.utility.SecurityUtility;
 
+
+
 @SpringBootApplication
 public class AdminportalApplication implements CommandLineRunner{
-
+	
 	@Autowired
 	private UserService userService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(AdminportalApplication.class, args);
 	}
@@ -39,4 +41,3 @@ public class AdminportalApplication implements CommandLineRunner{
 		userService.createUser(user1, userRoles);
 	}
 }
-

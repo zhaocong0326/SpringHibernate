@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.adminportal.domain.User;
 import com.adminportal.repository.UserRepository;
 
-
-
 @Service
 public class UserSecurityService implements UserDetailsService{
 	

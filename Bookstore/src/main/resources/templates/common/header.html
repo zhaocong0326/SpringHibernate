@@ -4,12 +4,18 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<title>ZHAOCONG's Bookstore</title>
+<title>Le's Bookstore</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
 <link href="/css/non-responsive.css" rel="stylesheet" />
+
+<!-- data table -->
+<link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+<link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
 <link href="/css/style.css" rel="stylesheet" />
@@ -25,7 +31,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">ZHAOCONG'S BOOKSTORE</a>
+					<a class="navbar-brand" href="#">LE'S BOOKSTORE</a>
 				</div>
 				<div id="navbar">
 					<ul class="nav navbar-nav navbar-left">
@@ -47,7 +53,7 @@
 						</form>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">SHOPPING CART</a></li>
+						<li><a th:href="@{/shoppingCart/cart}">SHOPPING CART</a></li>
 						<li><a sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
 						<li><a sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a></li>
 						<li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
@@ -60,9 +66,14 @@
 	</div>
 	
 	<div th:fragment="body-bottom-scripts">
-	<script 
-			src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	
+	<script th:src="@{/js/scripts.js}"></script>
+	
+	<!-- data table -->
+		<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
 	</div>
 </body>
 </html>
